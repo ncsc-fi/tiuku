@@ -1,0 +1,34 @@
+{
+  "MIN_LENGTH_TOO_SHORT": {
+    "name": "The minimum password length is too short",
+    "description": "Microsoft recommends at least 14 characters as the minimum password length."
+  },
+  "HISTORY_SIZE_TOO_SMALL": {
+    "name": "The password history size is too small",
+    "description": "Microsoft recommends using 24 for the password history size."
+  },
+  "COMPLEXITY_CHECK_DISABLED": {
+    "name": "Password complexity requirements are disabled",
+    "description": "If the complexity requirements are disabled, users can e.g. use their own name or username as their password."
+  },
+  "REVERSIBLE_ENCRYPTION_ENABLED": {
+    "name": "Passwords are stored using reversible encryption",
+    "description": "This makes it easier for attackers to obtain the user's passwords."
+  },
+  "LOCKOUT_DURATION_TOO_SHORT": {
+    "name": "The account lockout duration is too short",
+    "description": "Microsoft recommends using 15 minutes as the account lockout duration."
+  },
+  "LOCKOUT_THRESHOLD_TOO_HIGH": {
+    "name": "The account lockout threshold is too high",
+    "description": "Microsoft recommends using 10 as the account lockout threshold"
+  },
+  "LOCKOUT_DISABLED": {
+    "name": "Account lockout is disabled",
+    "description": "Set the account lockout threshold to a non-zero value to enable account lockout."
+  },
+  "LOCKOUT_RESET_COUNTER_AFTER_TOO_SHORT": {
+    "name": "The \"reset account lockout after\" time is too short",
+    "description": "Microsoft recommends resetting the account lockout counter after 15 minutes."
+  }
+}

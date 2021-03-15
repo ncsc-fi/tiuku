@@ -1,0 +1,10 @@
+{
+  "MFA_DISABLED": {
+    "name": "MFA disabled",
+    "description": "The user has not been enrolled in multi-factor authentication. This makes them more vulnerable to attackers who gain access to their password."
+  },
+  "MFA_NOT_ENFORCED": {
+    "name": "MFA not enforced",
+    "description": "The user has been enrolled in multi-factor authentication but has not completed the registration process. Non-browser apps can still access the account with just the user's own password."
+  }
+}

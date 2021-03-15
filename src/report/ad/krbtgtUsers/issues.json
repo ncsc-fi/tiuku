@@ -1,0 +1,6 @@
+{
+  "PASSWORD_TOO_OLD": {
+    "name": "It's been too long since the last password change",
+    "description": "The KRBTGT users' passwords should be rotated regularly"
+  }
+}

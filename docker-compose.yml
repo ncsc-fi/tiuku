@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  dev:
+    build: docker/node
+    volumes:
+      - .:/tiuku
+    command: 'sh -c "npm install && npm start"'
+    ports:
+      - 127.0.0.1:3000:3000
