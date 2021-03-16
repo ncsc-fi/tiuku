@@ -14,13 +14,13 @@ Tiuku differs from other security scanning tools in the following ways:
 
 All in all, it provides a quick and easy way to get a security overview across the many different platforms that a company might use. For systems administrators, it is a simpler alternative to platform-specific security scanners that all work in different ways. For security specialists, it can be the first step in an assessment to get the lay of the land before in-depth exploration using more specialized tools.
 
-![Tests](https://github.com/ncsc-fi/tiuku/ncsc-fi/tiuku/workflows/CI/badge.svg)
+![Tests](https://github.com/ncsc-fi/tiuku/workflows/CI/badge.svg)
 
 ![Architecture](docs/images/architecture.png?raw=true "Architecture")
 
 ## Getting started
 
-1. Download the ZIP file for [the latest release](https://github.com/ncsc-fi/tiuku/ncsc-fi/tiuku/releases/latest) (named `tiuku-release-<version>.zip`).
+1. Download the ZIP file for [the latest release](https://github.com/ncsc-fi/tiuku/releases/latest) (named `tiuku-release-<version>.zip`).
 
    You may have to disable your antivirus program to download the file. While it's not malicious, it collects security-related data from your environment in a way that an antivirus may consider suspicious.
 
@@ -34,7 +34,7 @@ All in all, it provides a quick and easy way to get a security overview across t
 
 ## Reporting problems
 
-1. Check [the existing issues](https://github.com/ncsc-fi/tiuku/ncsc-fi/tiuku/issues?q=is%3Aissue) in case your problem has already been reported.
+1. Check [the existing issues](https://github.com/ncsc-fi/tiuku/issues?q=is%3Aissue) in case your problem has already been reported.
 
 2. If there's no existing issue for the problem, please create a new issue describing:
 
