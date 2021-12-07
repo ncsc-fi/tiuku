@@ -33,6 +33,93 @@ describe('reportType', () => {
 // parser-specific tests (like the ones above) for more thorough testing with
 // various inputs.
 
+const validM365ReportDoc = {
+  Users: [
+    {
+      DisplayName: 'Alice',
+      UserPrincipalName: 'alice@example.com',
+      StrongAuthenticationRequirements: [{ State: 'Disabled' }]
+    },
+    {
+      DisplayName: 'Bob',
+      UserPrincipalName: 'bob@example.com',
+      StrongAuthenticationRequirements: [{ State: 'Enabled' }]
+    },
+    {
+      DisplayName: 'Eve',
+      UserPrincipalName: 'eve@example.com',
+      // No permission to read the data
+      StrongAuthenticationRequirements: null
+    },
+    {
+      DisplayName: 'Mallory',
+      UserPrincipalName: 'mallory@example.com',
+      StrongAuthenticationRequirements: []
+    }
+  ],
+  Mailboxes: [
+    {
+      'DisplayName': 'Box1',
+      'UserPrincipalName': 'principal1@example.com',
+      'AuditEnabled': false,
+      'DefaultAuditSet': ['Admin', 'Delegate', 'Owner']
+    },
+    {
+      'DisplayName': 'Box2',
+      'UserPrincipalName': 'principal2@example.com',
+      'AuditEnabled': true,
+      'DefaultAuditSet': ['Owner']
+    },
+    {
+      'DisplayName': 'Box3',
+      'UserPrincipalName': 'principal3@example.com',
+      'AuditEnabled': null,
+      'DefaultAuditSet': null
+    }
+  ],
+  Globaladmins: [
+    {
+      'DisplayName': 'Bob',
+      'UserPrincipalName': 'bob@example.com'
+    }
+  ],
+  AzureDNSRecords: [
+    {
+      Id: "/subscriptions/d36facf8-e23f-44f1-3afd-b81855a499ce/resourceGroups/ad-hunting-lab/providers/Microsoft.Network/dnszones/example.com/NS/@",
+      Name: "@",
+      ZoneName: "example.com",
+      ResourceGroupName: "ad-hunting-lab",
+      Ttl: 172800,
+      "Etag": "5d1dcb31-1bc1-4531-bf4d-fb80edf3829a",
+      "RecordType": 5,
+      "TargetResourceId": null,
+      "Records": [
+        {
+          Nsdname: "ns1-09.azure-dns.com."
+        },
+        {
+          Nsdname: "ns2-09.azure-dns.net."
+        },
+        {
+          Nsdname: "ns3-09.azure-dns.org."
+        },
+        {
+          Nsdname: "ns4-09.azure-dns.info."
+        }
+      ],
+      Metadata: null,
+      ProvisioningState: "Succeeded"
+    }
+  ],
+  MailboxForwardingRules: [
+    {
+      'DisplayName': 'Box1',
+      'UserPrincipalName': 'principal1@example.com',
+      'ForwardingAddress': 'testing@example.com'
+    },
+  ],
+};
+
 const validAdReportDoc = {
   ReportType: ReportType.AD,
   PasswordPolicy: {
@@ -139,12 +226,6 @@ describe('parseReport', () => {
           'UserPrincipalName': 'principal2@example.com',
           'AuditEnabled': true,
           'DefaultAuditSet': ['Owner']
-        },
-        {
-          'DisplayName': 'Box3',
-          'UserPrincipalName': 'principal3@example.com',
-          'AuditEnabled': null,
-          'DefaultAuditSet': null
         }
       ],
       Globaladmins: [
@@ -266,6 +347,16 @@ describe('parseReport', () => {
     });
   });
 
+  it('can parse M365 report with null MailboxForwardingRules', () => {
+    const reportDoc = {
+      ...validM365ReportDoc,
+      MailboxForwardingRules: null
+    }
+
+    const report = JSON.stringify(reportDoc);
+    const result = parseReport(report);
+    expect(result.mailboxForwardingRules).toBeNull();
+  })
   
   it('can parse AD reports', () => {
     const reportDoc = {

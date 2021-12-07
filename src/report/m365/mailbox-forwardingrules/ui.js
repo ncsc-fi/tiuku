@@ -19,6 +19,8 @@ const MailboxesForwardingRules = ({mailboxForwarding}) => (
           <th>Forwarding rule</th>
         </tr>
       </thead>
+      {
+      mailboxForwarding != null ?
       <tbody>
         {
           mailboxForwarding.map(forward => (
@@ -30,6 +32,8 @@ const MailboxesForwardingRules = ({mailboxForwarding}) => (
           ))
         }
       </tbody>
+      : <tr><td>Could not read mailbox forwarding rules</td></tr>
+      }
     </Table>
   </>
 );
