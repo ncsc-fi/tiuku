@@ -2,15 +2,16 @@ import {
   string,
   boolean,
   arrayOf,
-  struct
+  struct,
+  maybe
 } from '../../common/parser';
 
 const mailbox = (context, x) => {
   const o = struct({
     DisplayName: string,
     UserPrincipalName: string,
-    AuditEnabled: boolean,
-    DefaultAuditSet: arrayOf(string)
+    AuditEnabled: maybe(boolean),
+    DefaultAuditSet: maybe(arrayOf(string))
   })(context, x);
 
   return {

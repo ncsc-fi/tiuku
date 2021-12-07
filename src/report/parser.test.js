@@ -139,6 +139,12 @@ describe('parseReport', () => {
           'UserPrincipalName': 'principal2@example.com',
           'AuditEnabled': true,
           'DefaultAuditSet': ['Owner']
+        },
+        {
+          'DisplayName': 'Box3',
+          'UserPrincipalName': 'principal3@example.com',
+          'AuditEnabled': null,
+          'DefaultAuditSet': null
         }
       ],
       Globaladmins: [
