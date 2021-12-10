@@ -32,11 +32,13 @@ const Mailboxes = ({mailboxes}) => (
               <td>{enabledString(mailbox.isAuditEnabled)}</td>
               <td>
                 {
+                  mailboxes.defaultAuditSet != null ?
                   mailbox.defaultAuditSet.map(auditset => (
                     <div key={`${mailbox.userPrincipalName}--${auditset}`}>
                       <span>{auditset}</span>
                     </div>
                   ))
+                  : "null"
                 }
               </td>
             </tr>

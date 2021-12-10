@@ -1,4 +1,4 @@
-import {struct} from '../common/parser';
+import {struct, maybe} from '../common/parser';
 import users from './users/parser';
 import mailboxes from './mailboxes/parser';
 import globalAdmins from './globalAdmins/parser';
@@ -11,7 +11,7 @@ const report = (context, x) => {
     Mailboxes: mailboxes,
     Globaladmins: globalAdmins,
     AzureDNSRecords: dnsRecords,
-    MailboxForwardingRules: mailboxForwardingRules
+    MailboxForwardingRules: maybe(mailboxForwardingRules)
   })(context, x);
 
   return {
